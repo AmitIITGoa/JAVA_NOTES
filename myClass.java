@@ -73,7 +73,33 @@ public class myClass {
             ary.add(ran.nextInt(100)) ;
         }
 
-        ary.forEach(n->System.out.println(n));
+        // ary.forEach(n->System.out.println(n));
+
+        int  sum =   ary.stream()
+                        .map(n -> n*2) 
+                        .reduce(0 ,  (c , e) ->  c + e) ;
+
+        
+
+        int sum2 =   ary.stream()
+                         .map(i ->  i*2)
+                         .mapToInt(i -> i) 
+                         .sum() ;
+
+
+        int sum3=   ary.parallelStream()
+                         .map(i ->  i*2)
+                         .mapToInt(i -> i) 
+                         .sum() ;
+
+        System.out.println(sum + " " + sum2 + " " + sum3);
+
+        //  parallelstram will  take less time 
+        //  but in this case  parallelstram  will  take  extra  time to  create  a  thread ,   but it depend  on the machine always  
+
+
+
+
 
 
 
